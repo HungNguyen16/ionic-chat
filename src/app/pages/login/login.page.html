@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title class="ion-text-center">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">UUID</ion-label>
+    <ion-input type="text" [(ngModel)]="userUID"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button expand="full" shape="round" (click)='onSubmit()' class="loginBtn"> Login </ion-button>
+  <br>
+  <ion-button expand="full" shape="round" [routerLink]="['/register']" routerLinkActive="router-link-active"  class="loginBtn"> Register </ion-button>
+
+</ion-content>
+<ion-footer class="app-copy-right">
+    <ion-toolbar>
+        <ion-title class="ion-text-center"> @Copyright - NQH</ion-title>
+    </ion-toolbar>
+</ion-footer>

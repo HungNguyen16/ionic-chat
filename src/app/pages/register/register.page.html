@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title class="ion-text-center">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Enter UID</ion-label>
+    <ion-input type="text" [(ngModel)]="userUID" class="loginInput"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input type="text" [(ngModel)]="name" class="loginInput"></ion-input>
+  </ion-item>
+  <br>
+  <br>
+  <ion-button expand="full" shape="round" (click)='register()' class="loginBtn"> Register </ion-button>
+  <p>You have account
+    <ion-button expand="full" shape="round" class="loginBtn" [routerLink]="['/login']"
+      routerLinkActive="router-link-active"> Login </ion-button>
+  </p>
+  <ion-button [routerLink]="['/list-user']" routerLinkActive="router-link-active" >Danh sach</ion-button>
+</ion-content>
+<ion-footer class="app-copy-right">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-footer>
