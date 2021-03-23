@@ -1,3 +1,4 @@
+import { ConstantValue } from './../../config/constant-value-config.js';
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -18,9 +19,9 @@ const isPushNotificationsAvailable = Capacitor.isPluginAvailable('PushNotificati
 export class LoginPage implements OnInit {
 
   public userUID: string;
-  public appID: string = "30825a8f1e1e2ae";
-  public apiKey: string = "f5e7be05ded98deebb08ab22201241f98b3cf249";
-  public appRegion: string = "us";
+  // public appID: string = "30825a8f1e1e2ae";
+  // public apiKey: string = "f5e7be05ded98deebb08ab22201241f98b3cf249";
+  // public appRegion: string = "us";
 
   public chatID: string = 'superhero1';
 
@@ -32,7 +33,7 @@ export class LoginPage implements OnInit {
     private alertController: AlertController,
     private router: Router
   ) {
-    CometChat.init(this.appID, new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(this.appRegion).build()).then(
+    CometChat.init(ConstantValue.AppID, new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(ConstantValue.Region).build()).then(
       initialized => {
         console.log("Initialized", initialized);
         if (initialized) {
@@ -175,7 +176,7 @@ export class LoginPage implements OnInit {
             }
         );
     } else {
-        CometChat.login(this.userUID, this.apiKey).then(
+        CometChat.login(this.userUID, ConstantValue.AuthKey).then(
             async user => {
                 console.log("user Login via apiKey", user);
                 loading.dismiss();

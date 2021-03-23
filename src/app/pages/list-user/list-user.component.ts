@@ -37,18 +37,32 @@ export class ListUserPage implements OnInit {
     this.usersRequest.fetchNext().then(
         userList => {
             if (userList.length > 0) {
-                CometChat.getUnreadMessageCountForAllUsers().then(array => {
-                    const unread = Object.keys(array);
-                    if (unread.length > 0) {
-                        unread.map(uid => {
-                            const index = userList.findIndex(user => user.uid === uid);
-                            if (index !== -1) {
-                                userList[index].unreadCount = array[uid];
-                            }
-                        });
-                    }
+              CometChat.getUnreadMessageCountForAllUsers().then(array => {
+                const unread = Object.keys(array);
+                    // if (unread.length > 0) {
+                    //     unread.map(uid => {
+                    //         const index = userList.findIndex(user => user.uid === uid);
+                    //         if (index !== -1) {
+                    //             userList[index].unreadCount = array[uid];
+                    //         }
+                    //     });
+                    // }
                     this.userListArray = userList;
-                });
+                    console.log('ds', this.userListArray);
+              });
+                // CometChat.getUnreadMessageCountForAllUsers().then(array => {
+                //     const unread = Object.keys(array);
+                //     if (unread.length > 0) {
+                //         unread.map(uid => {
+                //             const index = userList.findIndex(user => user.uid === uid);
+                //             if (index !== -1) {
+                //                 userList[index].unreadCount = array[uid];
+                //             }
+                //         });
+                //     }
+                //     this.userListArray = userList;
+                //     console.log('ds', this.userListArray);
+                //   });
             }
         },
         error => {
@@ -154,11 +168,4 @@ export class ListUserPage implements OnInit {
       }
   }
 
-// async openMenu(myEvent) {
-//     const popover = await this.popoverCtrl.create({
-//         component: PopoverPage,
-//         event: myEvent
-//     });
-//     popover.present();
-// }
 }

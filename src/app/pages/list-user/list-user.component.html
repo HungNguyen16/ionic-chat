@@ -1,13 +1,8 @@
 <ion-header>
   <ion-toolbar color="mainColor">
-    <ion-title style="color: white;">Chats</ion-title>
-    <ion-button  fill="clear" slot="end" size="small" icon-only >
-      <!-- (click)="openMenu($event)" -->
-      <ion-icon style="color: #fff; width: 30px; height: 30px;" name="menu"></ion-icon>
-    </ion-button>
+    <ion-title style="color: #f00;" class="ion-text-center">Chats</ion-title>
   </ion-toolbar>
 </ion-header>
-
   <ion-content color="mainColor" style="overflow: hidden;height: -webkit-fill-available;">
     <ion-list style="border-top-left-radius: 20px; border-top-right-radius: 20px; overflow: auto; height: 97%; margin-left: 16px; margin-right: 16px; -webkit-margin-top-collapse: separate; margin-top: 16px;">
       <div *ngFor="let user of userListArray">
